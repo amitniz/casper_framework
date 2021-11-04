@@ -1,15 +1,6 @@
 #!/usr/env python3
 __author__="Amit Nizri, https://github.com/AmitNiz"
 
-''' 
-						*************************************************************************
-												- Casper FrameWork - 
-									Modular,Fast and Powerfull penetration framework.
-														
-
-																				Amit Nizri, 2021.
-						*************************************************************************
-'''
 import os
 import readline
 from command import Command
