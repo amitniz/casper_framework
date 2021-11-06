@@ -22,7 +22,7 @@ class Command:
     def module(self):
         module = self.parsed_cmd[0]
         if module == '!':
-            return 'extrernal'
+            return 'external'
             
         elif module == '?':
             return 'help'

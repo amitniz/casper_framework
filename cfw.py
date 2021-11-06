@@ -31,8 +31,20 @@ class Shell:
 
 
 	def exec(self,command):
-		print(f"exec: {command.module}: {command.module_args}") #TODO: for debugging. remove later
-		#TODO: FORK,EXEC
+		if command.module not in self.modules:
+			print("Unknown command..") #TODO replace print
+			return
+		if len(command.parsed_cmd)>1 and command.parsed_cmd[1] in self.modules[command.module].module_commands:
+			print("got it.")#TODO remove. for debugging
+		elif command.module in self.modules[command.module].module_commands: #run the default command
+			cmd = self.modules[command.module].module_commands[command.module]
+			args = ''
+			if len(command.parsed_cmd) >1:
+				args = ' '.join(command.parsed_cmd[1:])
+			ps = os.popen(cmd.replace('ARGS',args))
+			print(ps.read())
+		else:
+			print(f"{command.module}:unknown command..") #TODO replace print
 
 	def _createHistFile(self):
 		pass
